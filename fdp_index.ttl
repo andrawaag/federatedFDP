@@ -590,6 +590,15 @@ ns3:OBI_0001546 a owl:Class ;
     ns3:IAO_0000119 "Philly workshop 2011" ;
     ns3:IAO_0000232 "6/1/2012: We will utilize 'comparative qualities' once they are available in BFO2" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns3:OBI_0000293 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( ns3:IAO_0000109 [ a owl:Restriction ;
+                                owl:onProperty ns3:IAO_0000136 ;
+                                owl:someValuesFrom [ a owl:Class ;
+                                        owl:unionOf ( ns3:OBI_0100026 [ a owl:Restriction ;
+                                                    owl:onProperty ns3:BFO_0000050 ;
+                                                    owl:someValuesFrom ns3:OBI_0100026 ] ) ] ] ) ] ],
+        [ a owl:Restriction ;
             owl:onProperty ns3:OBI_0000299 ;
             owl:someValuesFrom [ a owl:Class ;
                     owl:intersectionOf ( ns3:IAO_0000144 [ a owl:Restriction ;
@@ -602,15 +611,6 @@ ns3:OBI_0001546 a owl:Class ;
                                                             owl:unionOf ( ns3:OBI_0100026 [ a owl:Restriction ;
                                                                         owl:onProperty ns3:BFO_0000050 ;
                                                                         owl:someValuesFrom ns3:OBI_0100026 ] ) ] ] ) ] ] ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty ns3:OBI_0000293 ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:intersectionOf ( ns3:IAO_0000109 [ a owl:Restriction ;
-                                owl:onProperty ns3:IAO_0000136 ;
-                                owl:someValuesFrom [ a owl:Class ;
-                                        owl:unionOf ( ns3:OBI_0100026 [ a owl:Restriction ;
-                                                    owl:onProperty ns3:BFO_0000050 ;
-                                                    owl:someValuesFrom ns3:OBI_0100026 ] ) ] ] ) ] ],
         ns3:OBI_0000338,
         ns3:OBI_0001834 .
 
