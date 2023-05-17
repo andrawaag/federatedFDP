@@ -3,6 +3,6 @@ matplotlib
 rdflib
 pandas
 requests
-yaml
+PyYAML
 IPython
 shexer
