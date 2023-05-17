@@ -1,1 +1,7 @@
 matplotlib
+rdflib
+pandas
+requests
+yaml
+IPython
+shexer
