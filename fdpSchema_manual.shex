@@ -1,0 +1,165 @@
+PREFIX : <http://weso.es/shapes/>
+PREFIX iso639-1: <http://id.loc.gov/vocabulary/iso639-1/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
+PREFIX ns3: <http://purl.obolibrary.org/obo/>
+PREFIX : <http://semanticscience.org/ontology/sio.owl#>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX sdo: <http://schema.org/>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX ns31: <http://www.geneontology.org/formats/oboInOWL#>
+PREFIX pato: <http://purl.obolibrary.org/obo/pato#>
+PREFIX vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#>
+PREFIX default1: <http://www.w3.org/ns/ldp#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX fdp: <https://w3id.org/fdp/fdp-o#>
+PREFIX ns2: <http://www.loc.gov/mads/rdf/v1#>
+PREFIX ns4: <http://id.loc.gov/ontologies/RecordInfo#>
+PREFIX ns5: <http://purl.org/vocab/changeset/schema#>
+PREFIX skos: <http://www.w3.org/2008/05/skos-xl#>
+PREFIX dbp: <http://dbpedia.org/ontology/>
+PREFIX re3d: <http://www.re3data.org/schema/3-0#>
+PREFIX euar: <http://publications.europa.eu/resource/authority/access-right/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+# https://fairdata.services:7070/?format=ttl
+:FAIRDataPoint
+{
+    rdf:type  [fdp:MetadataService]     ;
+    rdf:type  [fdp:FAIRDataPoint]       ;
+    rdf:type  [dcat:DataService]        ;
+    rdf:type  [dcat:Resource]           ;
+
+   $:header (
+       rdfs:label               xsd:string              ;
+       dcterms:title            xsd:string              ;
+       dcterms:description      xsd:string              ;
+       dcterms:hasVersion       xsd:string              ;
+       dcterms:language         [iso639-1:~]            ;
+   ) ;
+
+   ## Legal
+   $:legal (
+               dcterms:license         @:licenses  ?;
+               dcterms:accessRights  @:EUVOCAR OR (IRI AND NOT [eaur:~]) ;
+             );
+
+   ## Metadata
+   re3d:repositoryIdentifier  IRI  ;
+   dcat:themeTaxonomy  IRI             * ;
+   fdp:metadataCatalog  @:Catalog  ;
+   sio:SIO_000628  IRI ;
+   dcterms:conformsTo  IRI  ;
+   fdp:fdpSoftwareVersion  xsd:string  ;
+   $:fdpmetadata (
+       dcterms:hasVersion       xsd:string              ;
+       fdp:metadataIssued       xsd:dateTime            ;
+       fdp:metadataModified     xsd:dateTime            ;
+       dcterms:conformsTo       IRI                     ;
+       fdp:metadataIdentifier   IRI                     ;
+       dcterms:publisher        IRI                     ;
+       dcat:endpointURL         IRI  ;
+       dcat:endpointDescription xsd:string  ? ;
+   ) ;
+}
+
+# https://fairdata.services:7070/catalog/ce01b2e8-3a1d-434e-b5e2-98e3a8d78a5b?format=ttl
+:Catalog
+{
+   rdf:type                [dcat:Catalog]           ;
+   rdf:type                [dcat:Resource]          ?;
+   &:header ;
+   &:legal ;
+   &:fdpmetadata ;
+   dcat:themeTaxonomy  IRI                          * ;
+}
+
+https://fairdata.services:7070/dataset/3a2b5a69-b36f-4db9-983d-a1e410ba9c71?format=ttl
+:Dataset
+{
+   rdf:type                 [dcat:Dataset]      ;
+   rdf:type                 [dcat:Resource]     ;
+   &:header ;
+   &:legal ;
+   &:fdpmetadata ;
+   dcterms:isPartOf         @:Catalog           ;
+   dcterms:issued           xsd:dateTime ; # TODO: Make issue why this next to metadataIssued
+   dcterms:modified         xsd:dateTime     ; # TODO: Make issue why this next to metadataModified
+   dcterms:rights           IRI             ; # TODO: Make issue why this next to dct:accessRights         ?;
+   dcat:keyword             xsd:string      *; # TODO: Make issue why this next to dcat:theme
+   dcat:landingPage         IRI             ?;
+   dcat:theme               IRI             *;
+   dcat:distribution        @:Distribution  *;
+}
+
+# https://fairdata.services:7070/distribution/a3c1d96a-e35c-4417-a3fc-62028acf1f26?format=ttl
+:Distribution
+{
+    rdf:type                 [dcat:Distribution] ;
+    rdf:type                 [dcat:Resource]     ;
+    &:header ;
+    &:legal ;
+    &:fdpmetadata ;
+    dcat:mediaType           xsd:string          ; # TODO: Make value list of media types
+    dcat:accessService       @:AccessService     ?;
+}
+
+# https://fairdata.services:7070/dataservice/017be60d-8e5e-41c9-b4e6-3dd572285cfa?format=ttl
+:AccessService {
+    rdf:type                 [dcat:AccessService] ;
+    &:header ;
+    &:fdpmetadata ;
+    dcterms:isPartOf         @:Distribution           ;
+}
+
+
+:EUVOCAR [
+    euar:PUBLIC
+    euar:RESTRICTED
+    euar:NON_PUBLIC
+    euar:SENSITIVE
+    euar:CONFIDENTIAL
+]
+
+:licenses {
+   wdt:P279 [
+             wd:Q79719  # P279 = subclass of Q79719 = license
+             wd:Q77205602  # P279 = subclass of Q77205602 = open license
+             wd:Q27020041  # P279 = subclass of Q27020041 = Creative Commons license
+             wd:Q51754273  # P279 = subclass of Q51754273 = data copyright license
+            ]
+}
+
+
+
+
+
+
