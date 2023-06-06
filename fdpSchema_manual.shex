@@ -53,10 +53,10 @@ PREFIX wd: <http://www.wikidata.org/entity/>
 # https://fairdata.services:7070/?format=ttl
 :FAIRDataPoint
 {
-    rdf:type  [fdp:MetadataService]     ;
-    rdf:type  [fdp:FAIRDataPoint]       ;
-    rdf:type  [dcat:DataService]        ;
-    rdf:type  [dcat:Resource]           ;
+    rdf:type                    [fdp:MetadataService]     ;
+    rdf:type                    [fdp:FAIRDataPoint]       ;
+    rdf:type                    [dcat:DataService]        ;
+    rdf:type                    [dcat:Resource]           ;
 
    $:header (
        rdfs:label               xsd:string              ;
@@ -68,9 +68,9 @@ PREFIX wd: <http://www.wikidata.org/entity/>
 
    ## Legal
    $:legal (
-               dcterms:license         @:licenses  ?;
-               dcterms:accessRights  @:EUVOCAR OR (IRI AND NOT [eaur:~]) ;
-             );
+      dcterms:license         @:licenses  ?;
+      dcterms:accessRights  @:EUVOCAR OR (IRI AND NOT [eaur:~]) ;
+   );
 
    ## Metadata
    re3d:repositoryIdentifier  IRI  ;
@@ -102,7 +102,7 @@ PREFIX wd: <http://www.wikidata.org/entity/>
    dcat:themeTaxonomy  IRI                          * ;
 }
 
-https://fairdata.services:7070/dataset/3a2b5a69-b36f-4db9-983d-a1e410ba9c71?format=ttl
+# https://fairdata.services:7070/dataset/3a2b5a69-b36f-4db9-983d-a1e410ba9c71?format=ttl
 :Dataset
 {
    rdf:type                 [dcat:Dataset]      ;
@@ -139,7 +139,6 @@ https://fairdata.services:7070/dataset/3a2b5a69-b36f-4db9-983d-a1e410ba9c71?form
     &:fdpmetadata ;
     dcterms:isPartOf         @:Distribution           ;
 }
-
 
 :EUVOCAR [
     euar:PUBLIC
