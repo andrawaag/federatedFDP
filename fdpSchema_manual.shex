@@ -46,7 +46,7 @@ PREFIX ns5: <http://purl.org/vocab/changeset/schema#>
 PREFIX skos: <http://www.w3.org/2008/05/skos-xl#>
 PREFIX dbp: <http://dbpedia.org/ontology/>
 PREFIX re3d: <http://www.re3data.org/schema/3-0#>
-PREFIX euar: <http://publications.europa.eu/resource/authority/access-right/>
+PREFIX eaur: <http://publications.europa.eu/resource/authority/access-right/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX wd: <http://www.wikidata.org/entity/>
 
