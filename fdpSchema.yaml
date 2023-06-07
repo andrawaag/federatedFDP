@@ -1,6 +1,6 @@
 # load manifest for ShEx
-#   shex-simple: http://shex.io/webapps/shex.js/doc/shex-simple?manifestURL=//fhircat.github.io/FHIR-ShEx-manifests/-fhir-constraints.yaml
-
+#   shex-simple: http://shex.io/webapps/shex.js/doc/shex-simple?manifestURL=https://raw.githubusercontent.com/andrawaag/federatedFDP/main/fdpSchema.yaml
+---
 - schemaLabel: FDP specification
   schemaURL: https://raw.githubusercontent.com/andrawaag/federatedFDP/main/fdpSchema_manual.shex
   dataLabel: Duchenne Parent Project: FAIR Data Point
