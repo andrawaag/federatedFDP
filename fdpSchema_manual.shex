@@ -29,7 +29,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
 PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
 PREFIX ns3: <http://purl.obolibrary.org/obo/>
-PREFIX : <http://semanticscience.org/ontology/sio.owl#>
 PREFIX sio: <http://semanticscience.org/resource/>
 PREFIX sdo: <http://schema.org/>
 PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
@@ -61,14 +60,13 @@ PREFIX wd: <http://www.wikidata.org/entity/>
    $:header (
        rdfs:label               xsd:string              ;
        dcterms:title            xsd:string              ;
-       dcterms:description      xsd:string              ;
-       dcterms:hasVersion       xsd:string              ;
+       dcterms:description      xsd:string              ;            ;
        dcterms:language         [iso639-1:~]            ;
    ) ;
 
    ## Legal
    $:legal (
-      dcterms:license         @:licenses  ?;
+      dcterms:license         @:licenses OR IRI ?;
       dcterms:accessRights  @:EUVOCAR OR (IRI AND NOT [euar:~]) ;
    );
 
@@ -77,10 +75,9 @@ PREFIX wd: <http://www.wikidata.org/entity/>
    dcat:themeTaxonomy  IRI             * ;
    fdp:metadataCatalog  @:Catalog  ;
    sio:SIO_000628  IRI ;
-   dcterms:conformsTo  IRI  ;
    fdp:fdpSoftwareVersion  xsd:string  ;
    $:fdpmetadata (
-       dcterms:hasVersion       xsd:string              ;
+       dcterms:hasVersion       LITERAL                 ;
        fdp:metadataIssued       xsd:dateTime            ;
        fdp:metadataModified     xsd:dateTime            ;
        dcterms:conformsTo       IRI                     ;
