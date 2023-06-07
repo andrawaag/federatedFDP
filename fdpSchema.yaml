@@ -3,7 +3,7 @@
 ---
 - schemaLabel: FDP specification
   schemaURL: https://raw.githubusercontent.com/andrawaag/federatedFDP/main/fdpSchema_manual.shex
-  dataLabel: Duchenne Parent Project: FAIR Data Point
+  dataLabel: Duchenne Parent Project FAIR Data Point
   dataURL: https://fairdata.services:7070/?format=ttl
   queryMap: |
     <https://w3id.org/duchenne-fdp>@:FAIRDataPoint,
