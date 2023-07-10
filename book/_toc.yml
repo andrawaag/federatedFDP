@@ -1,15 +1,12 @@
 format: jb-book
 parts:
-- caption: A tutorial on adding metadata to FDPs
+- caption: Document-hosted FDPs
   chapters:
-  - file: introduction/section1.md
-  - file: introduction/section2.md
-  - file: introduction/section3.md
-- caption: Adding metadata to a FDP
+  - file: stepByStepHowto/DocumentHostedImplementation/introduction.md
+  - file: stepByStepHowto/DocumentHostedImplementation/settingup.md
+- caption: Software-hosted FDPs
   chapters:
-  - file: stepByStepHowto/sectionCreateCatalog.md
-  - file: stepByStepHowto/populateHomepage.md
-  - file: stepByStepHowto/populateRights.md
+  - file: stepByStepHowTo/SoftwareHostedImplementation/introduction.md
 - caption: FDPs listed on https://index.vp.ejprarediseases.org
   chapters:
   - file: fdpHarvest.ipynb
